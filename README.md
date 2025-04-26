@@ -6,6 +6,9 @@ Membaca adalah cara yang luar biasa untuk belajar, menginspirasi diri, dan menge
 
 Proyek ini penting karena dapat meningkatkan pengalaman pengguna, mempercepat proses pencarian buku, serta mendorong penjualan atau penggunaan platform literasi digital.
 
+**Akses Aplikasi Streamlit:**  
+👉 [Klik di sini untuk mencoba sistem rekomendasi buku](https://book-recommendation-system-with-content-based-filtering-hyfthb.streamlit.app/)
+
 **Referensi:**  
 [1] R. Burke, "Hybrid Web Recommender Systems," *The Adaptive Web*, pp. 377–408, 2007.
 
@@ -78,10 +81,10 @@ Dataset terdiri dari:
 
 ### Penjelasan Metrik
 - **Cosine Similarity**:
-  \[
-  \text{similarity} = \cos(\theta) = \frac{A \cdot B}{\|A\|\|B\|}
-  \]
-  Semakin mendekati 1, semakin mirip dokumen tersebut.
+
+\[ \text{similarity} = \cos(\theta) = \frac{A \cdot B}{\|A\|\|B\|} \]
+
+Semakin mendekati 1, semakin mirip dokumen tersebut.
 
 ### Hasil Evaluasi
 - Rekomendasi sangat relevan, terutama untuk buku dalam satu seri atau penulis yang sama.
@@ -117,3 +120,4 @@ H --> I[Selesai]
 1. R. Burke, "Hybrid Web Recommender Systems," *The Adaptive Web*, 2007.  
 2. F. Ricci, L. Rokach, B. Shapira, *Introduction to Recommender Systems Handbook*, Springer, 2011.  
 3. Scikit-learn Documentation: https://scikit-learn.org/stable/
+
