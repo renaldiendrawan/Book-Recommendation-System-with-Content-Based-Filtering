@@ -37,9 +37,6 @@ topics = {
 # TF-IDF baru untuk content-based topik
 @st.cache_resource
 def load_tfidf_content():
-    books['content'] = books['Book-Title'].fillna('') + ' ' + \
-                       books['Book-Author'].fillna('') + ' ' + \
-                       books['Publisher'].fillna('')
     tfidf_content = TfidfVectorizer(stop_words='english')
     tfidf_matrix_content = tfidf_content.fit_transform(books['content'])
     return tfidf_content, tfidf_matrix_content

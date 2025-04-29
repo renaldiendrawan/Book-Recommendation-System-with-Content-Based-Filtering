@@ -102,6 +102,26 @@ Informasi ini berguna untuk memahami dominasi penerbit dalam dataset dan potensi
 
 ## Data Preparation
 
+Menghapus Duplikat Judul Buku
+"""
+
+# Hapus duplikat berdasarkan judul buku (case-insensitive)
+books.drop_duplicates(subset='Book-Title', keep='first', inplace=True)
+
+# Reset ulang index setelah drop
+books = books.reset_index(drop=True)
+
+# Perbarui kembali mapping judul buku ke index
+indices = pd.Series(books.index, index=books['Book-Title'].str.lower())
+
+"""Hapus Duplikat Judul Buku
+
+Beberapa buku dalam dataset memiliki judul yang identik namun tercatat lebih dari sekali karena perbedaan kecil dalam penulisan atau metadata seperti ISBN atau penerbit. Hal ini menyebabkan sistem rekomendasi memberikan hasil yang redundan atau sama persis.
+
+Untuk mengatasi hal ini, dilakukan penghapusan entri duplikat berdasarkan `Book-Title`. Pemilihan hanya satu entri per judul dilakukan agar hasil rekomendasi menjadi lebih bervariasi dan tidak membingungkan pengguna.
+
+Langkah ini penting sebagai bagian dari tahap **Data Preparation**, bukan dilakukan saat pemodelan.
+
 Gabungkan fitur penting
 """
 
