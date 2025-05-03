@@ -200,9 +200,6 @@ Best Parameters: {
 ```
 ---
 
-Penjelasan ini akan memperkuat bagian *Modeling and Result* dengan menjelaskan proses optimasi yang kamu lakukan di dalam pipeline. Apakah kamu ingin saya bantu gabungkan semuanya dalam satu file laporan markdown atau notebook?
----
-
 ## 🧪 Evaluation
 
 ### 📐 Metrik Evaluasi
