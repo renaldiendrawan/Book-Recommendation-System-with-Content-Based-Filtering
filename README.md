@@ -153,8 +153,54 @@ Berikut adalah hasil rekomendasi (Top-10) untuk input judul **"Harry Potter and 
 
 ---
 
-Berikut adalah bagian **Evaluation** yang telah diperbaiki dan disesuaikan dengan output evaluasi dari Google Colab, serta dikaitkan langsung dengan *Business Understanding*, *Problem Statement*, dan *Goals*:
+### Hyperparameter Tuning dengan GridSearchCV
 
+Dalam proses modeling, dilakukan **tuning hyperparameter** pada tahap *Text Vectorization* menggunakan `TfidfVectorizer`. Untuk mendapatkan kombinasi parameter terbaik, digunakan teknik **GridSearchCV**.
+
+#### Cara Kerja GridSearchCV
+
+`GridSearchCV` bekerja dengan cara:
+1. Mencoba semua kombinasi parameter yang ditentukan pada `param_grid`.
+2. Melakukan *cross-validation* (CV) pada setiap kombinasi parameter tersebut.
+3. Mengukur performa berdasarkan skor evaluasi (misalnya `'accuracy'`) dan memilih kombinasi parameter terbaik.
+
+#### Parameter yang Digunakan
+
+Berikut parameter yang dituning untuk `TfidfVectorizer`:
+
+```python
+param_grid = {
+    'tfidf__max_df': [0.8, 0.9, 1.0],
+    'tfidf__min_df': [1, 5, 10],
+    'tfidf__ngram_range': [(1,1), (1,2)]
+}
+```
+
+- `max_df`: Mengabaikan kata yang muncul di lebih dari x% dokumen.
+- `min_df`: Hanya menyertakan kata yang muncul di setidaknya x dokumen.
+- `ngram_range`: Mengatur apakah hanya unigram `(1,1)` atau juga termasuk bigram `(1,2)`.
+
+GridSearch dijalankan menggunakan 3-fold cross-validation dan metrik `accuracy`:
+
+```python
+grid = GridSearchCV(pipeline, param_grid, cv=3, n_jobs=-1, scoring='accuracy')
+grid.fit(books['content'])
+```
+
+#### Hasil Tuning
+
+Berdasarkan hasil tuning, kombinasi parameter terbaik yang diperoleh adalah:
+
+```python
+Best Parameters: {
+    'tfidf__max_df': 0.8,
+    'tfidf__min_df': 1,
+    'tfidf__ngram_range': (1, 1)
+}
+```
+---
+
+Penjelasan ini akan memperkuat bagian *Modeling and Result* dengan menjelaskan proses optimasi yang kamu lakukan di dalam pipeline. Apakah kamu ingin saya bantu gabungkan semuanya dalam satu file laporan markdown atau notebook?
 ---
 
 ## 🧪 Evaluation
