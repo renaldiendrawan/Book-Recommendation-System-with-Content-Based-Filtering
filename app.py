@@ -156,4 +156,4 @@ if input_value:
 
 # Footer
 st.markdown("---")
-st.caption("Created with ❤️ by YourName - Powered by Streamlit")
+st.caption("Created by Renaldi Endrawan - Powered by Streamlit")
